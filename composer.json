@@ -1,0 +1,7 @@
+{
+  "name": "markdown-extended/demo",
+  "type": "library",
+  "require": {
+    "picas/markdown-extended": "dev-develop"
+  }
+}

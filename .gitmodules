@@ -1,0 +1,9 @@
+[submodule "submodules/markdown-extended"]
+	path = submodules/markdown-extended
+	url = https://github.com/e-picas/markdown-extended.git
+[submodule "submodules/mde-cgi"]
+	path = submodules/mde-cgi
+	url = https://github.com/markdown-extended/mde-cgi.git
+[submodule "submodules/manifest"]
+	path = submodules/manifest
+	url = https://github.com/markdown-extended/manifest.git
