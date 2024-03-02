@@ -84,15 +84,6 @@ if (isset($contents['file_path'])) {
             <div class="collapse navbar-collapse">
                 <ul id="navigation_menu" class="nav navbar-nav" role="navigation">
                     <li><a href="index.php">Usage</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-<?php foreach ($documentations as $f) : ?>
-                            <li><a href="index.php?doc=<?php echo $f; ?>&notab=1">
-                                    <?php echo str_replace(['_', '-'], ' ', str_replace('.md', '', basename($f))); ?>
-                                </a></li>
-<?php endforeach; ?>
-                        </ul>
-                    </li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Tests <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="index.php?page=form">Test of a form field</a></li>

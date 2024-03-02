@@ -33,7 +33,7 @@ $bootstrapGetPath = function ($parts) {
     ));
 };
 
-define('EXT_MDE_PATH', dirname(__DIR__).'/submodules/markdown-extended');
+define('EXT_MDE_PATH', dirname(__DIR__).'/vendor/picas/markdown-extended');
 
 // parse composer.json
 $manifest = $bootstrapGetPath([
@@ -92,44 +92,17 @@ $contents_dir = $bootstrapGetPath([
     __DIR__, 'contents',
 ]) . DIRECTORY_SEPARATOR;
 
-// documentation
-$documentations = [];
-$doc_dir = $bootstrapGetPath([
-    EXT_MDE_PATH, 'doc',
-]);
-foreach (scandir($doc_dir) as $f) {
-    if (!in_array($f, ['.', '..']) && !is_dir($f)) {
-        $documentations[] = '../doc/' . $f;
-    }
-}
-
 // demonstrations
 $demonstrations = [
     'MD_syntax.md',
     'Lorem-Ipsum.md',
-    'CONTRIBUTING.md',
-    'README.md',
-    'mde-manifest.md',
 ];
 
 // process
 if (!is_null($doc_uri)) {
-
     $doc = realpath(__DIR__ . DIRECTORY_SEPARATOR . $doc_uri);
-    $doc_mde = realpath(EXT_MDE_PATH . $doc_uri);
-    $doc_mde_doc = realpath(EXT_MDE_PATH . '/doc/' . $doc_uri);
-
     if (file_exists($doc)) {
         $contents = include $contents_dir . 'mde-content.php';
-
-    } elseif (file_exists($doc_mde)) {
-        $doc = $doc_mde;
-        $contents = include $contents_dir . 'mde-content.php';
-
-    } elseif (file_exists($doc_mde_doc)) {
-        $doc = $doc_mde_doc;
-        $contents = include $contents_dir . 'mde-content.php';
-
     } else {
         $errors[] = printf('Document "%s" not found', $doc);
     }
